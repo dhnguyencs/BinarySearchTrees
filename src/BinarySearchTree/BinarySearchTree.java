@@ -21,12 +21,6 @@ public class BinarySearchTree<TYPE> {
 		if(_root._left != null) _root._left.printSelf("", (_root._right != null) ? "├──" : "└──", _root._right != null, callback);
 		if(_root._right != null) _root._right.printSelf("", "└──", false, callback);
 	}
-	public void printTree(PrintAndShow<TYPE> callback) {
-		if (_root == null) return;
-		System.out.print(callback.call(_root._data));
-		if(_root._left != null) _root._left.printSelf("", (_root._right != null) ? "├──" : "└──", _root._right != null, callback);
-		if(_root._right != null) _root._right.printSelf("", "└──", false, callback);
-	}
 	public void printTree(PrintAndShow<TYPE> callback, PrintCallback<TYPE> customPrintCallBack) {
 		callback.customToString = customPrintCallBack;
 		printTree(callback);

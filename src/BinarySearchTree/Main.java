@@ -1,0 +1,32 @@
+package BinarySearchTree;
+import java.util.Random;
+
+public class Main {
+	public static String hackyClearConsole = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+	public static void main(String[] args) {
+		Random rand = new Random();
+		BinarySearchTree<Integer> newTree = new BinarySearchTree<Integer>();
+		CompareCallback<Integer> newCallBack = (a, b) -> { return a < b; };
+		System.out.print(hackyClearConsole);
+		int amount = 40;
+		for(int i = 0; i < amount; i++) {
+			newTree.insert(rand.nextInt(100), newCallBack);
+			newTree.printTree((a)->{
+				return a.toString();
+			});			
+			try {
+				Thread.sleep(100);
+				if(i < amount - 1) System.out.print(hackyClearConsole);
+			} catch (InterruptedException e) {
+				System.out.println(e);
+			}
+		}
+		
+
+		
+		System.out.println("\n" + newTree.find(10, (a, b) -> {
+			return a.equals(b);
+		}, newCallBack));
+	}
+
+}

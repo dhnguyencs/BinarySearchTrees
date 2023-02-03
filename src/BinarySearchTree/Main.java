@@ -12,10 +12,12 @@ public class Main {
 		int amount = 20;
 		for(int i = 0; i < amount; i++) {
 			newTree.insert(rand.nextInt(1000), newCallBack);
-//			newTree.printTree((a)->{
+//			newTree.printTree((a) -> {
 //				return a.toString();
-//			});	
-			newTree.printTreeAndShow(showPrinted);
+//			});
+			newTree.printTree(showPrinted, (a) -> {
+				return a.toString();
+			});
 			try {
 				Thread.sleep(1000);
 				if(i < amount - 1) System.out.print(hackyClearConsole);

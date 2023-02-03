@@ -10,20 +10,6 @@ public class Node<TYPE> {
 	Node(TYPE DATA){
 		this._data = DATA;
 	}
-	public void setLeft(TYPE DATA) {
-		if(this._left == null) {
-			this._left = new Node<TYPE>(DATA);
-		}else {
-			this._left._data = DATA;
-		}
-	}
-	public void setRight(TYPE DATA) {
-		if(this._right == null) {
-			this._right = new Node<TYPE>(DATA);
-		}else {
-			this._right._data = DATA;
-		}
-	}
 	public void insert(Node<TYPE> newNode, CompareCallback<TYPE> callback) {
 		if(_left == null && callback.call(_data, newNode._data)) {
 			_left = newNode;

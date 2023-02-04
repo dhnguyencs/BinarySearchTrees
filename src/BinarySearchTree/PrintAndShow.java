@@ -10,7 +10,7 @@ public class PrintAndShow<TYPE> implements PrintCallback<TYPE> {
 	public String call(TYPE A) {
 		if(!newMap.containsKey(A)) {
 			newMap.put(A, true);
-			return customToString == null ? A.toString() : customToString.call(A) + " <--";
+			return (customToString == null ? A.toString() : customToString.call(A)) + " <--";
 		}
 		return customToString == null ? A.toString() : customToString.call(A);
 	}
